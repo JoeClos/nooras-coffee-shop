@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragments="head">
+    <meta charset="UTF-8" />
+    <title>Noora's Coffee Shop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../static/style.css}" />
+    <style>
+      .cards-container {
+    column-count: 2;
+    padding: 1rem;
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+
+  .cards-container div {
+    background: floralwhite;
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5rem;
+    text-align: center;
+  
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+ }
+ 
+ .cards-container div:first-child {
+     margin: 0;
+ }
+    </style>
+  </head>
+
+  <body style="background-color: #d2c1b0" >
+    <div class="d-flex h-100 text-center navbar"
+    cz-shortcut-listen="true"
+    style="background-color: floralwhite; color: #37251b">
+        <section th:replace="fragments/header :: section"><section></section>
+
+    </div>
+    <div class="container" style="margin-left: 30rem;">
+        <div class="col-sm-6">
+            <h3 style="margin-top: 10px; color: #37251b;">Sign Up Now</h3>
+            <p>Please fill out this to register</p>
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" required placeholder="Your Firstname" class="form-control form-control-lg">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" required placeholder="Your Lastname" class="form-control form-control-lg">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control form-control-lg" required minlength="6" placeholder="Email" name="email" id="email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                    anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control form-control-lg" required placeholder="Password" name="password" id="password">
+                </div>
+
+                <input type="submit" value="Register" class="btn btn-primary btn-block" style="background-color:#37251b; color:#d2c1b0; border: #37251b; margin-top: 5px;">
+                <span style="margin-top: 10px">Already have an account? <a  href="./login.html"
+                                                                      th:href="@{/login}" style="text-decoration: none; color: #37251b; font-weight: bold; font-style: italic;">Login here</a></span>
+            </form>
+        </div>
+    </div>
+
+  </body>
+</html>
+
+
