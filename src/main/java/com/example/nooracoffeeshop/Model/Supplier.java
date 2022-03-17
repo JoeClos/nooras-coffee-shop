@@ -1,10 +1,6 @@
 package com.example.nooracoffeeshop.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -16,11 +12,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor 
 @AllArgsConstructor
+public class Supplier  extends AbstractPersistable<Long>{
 
-public class Category extends AbstractPersistable<Long>{
     private String name;
-    private long categoryID;
+    private String contactPerson;
+    private String contactPersonEmail;
     
-     @OneToMany(mappedBy = "category")
-     private List<Product> product = new ArrayList<>();
 }

@@ -1,8 +1,8 @@
-package com.example.nooracoffeeshop.Repository;
+package com.example.nooracoffeeshop.repository;
 
 
 
-import com.example.nooracoffeeshop.Model.Category;
+import com.example.nooracoffeeshop.model.Category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-    // void save(java.util.Locale.Category category);
+    
     
 }

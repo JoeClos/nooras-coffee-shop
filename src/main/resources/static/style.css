@@ -1,7 +1,6 @@
-/* a.nav-link {
-    float: right;
-    margin-right: 2rem;
-} */
+h1 {
+    color: brown;
+}
 .title-style {
 
     font-family: 'Merienda', cursive;
@@ -10,3 +9,21 @@
     font-variant: small-caps;
     
 }
+.cards-container {
+    column-count: 2;
+  }
+
+  .cards-container div {
+    background: floralwhite;
+    height: 50px;
+    margin: 10px 0;
+ 
+  
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+ }
+ 
+ .cards-container div:first-child {
+     margin: 0;
+ }
