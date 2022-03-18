@@ -12,27 +12,27 @@
     <link rel="stylesheet" th:href="@{../static/style.css}" />
     <style>
       .cards-container {
-    column-count: 2;
-    padding: 1rem;
-    margin-left: 15rem;
-    margin-top: 5rem;
-  }
+        column-count: 2;
+        padding: 1rem;
+        margin-left: 15rem;
+        margin-top: 5rem;
+      }
 
-  .cards-container div {
-    background: floralwhite;
-    height: 50px;
-    margin: 10px 0;
-    border-radius: 5rem;
-    text-align: center;
-  
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
- }
- 
- .cards-container div:first-child {
-     margin: 0;
- }
+      .cards-container div {
+        background: floralwhite;
+        height: 50px;
+        margin: 10px 0;
+        border-radius: 5rem;
+        text-align: center;
+
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .cards-container div:first-child {
+        margin: 0;
+      }
     </style>
   </head>
 
@@ -44,7 +44,7 @@
     >
       <section
         th:fragments="section"
-        class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" 
+        class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"
       >
         <nav class="mb-auto">
           <div>
