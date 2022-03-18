@@ -27,6 +27,13 @@ public class Product extends AbstractPersistable<Long>{
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    // @ManyToOne
+    // @JoinColumn(name = "manufacturer_id", nullable = false)
+    // private Manufacturer manufacturer;
+
+    // @ManyToOne
+    // @JoinColumn(name = "supplier_id",nullable = false)
+    // private Supplier supplier;
         
     
 }
