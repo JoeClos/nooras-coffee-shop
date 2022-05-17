@@ -34,22 +34,10 @@
              class="d-inline-block inline-top">
              <p class="title-style">Noora's coffee shop</p>
           </a>
-          <!-- <button 
-          class="navbar-toggler" 
-          type="button" 
-          data-toggle="collapse" 
-          data-target="#navbarSupportedContent" 
-          aria-expanded="false" 
-          aria-controls="navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-          
       </div>
       
       
       <div > 
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">  -->
-      
           <ul class="navbar-nav mr-auto"></ul>
           <ul class="navbar-nav">
             <li class="nav-item active">
@@ -66,7 +54,7 @@
            
     <h2>Update product</h2>
 
-    <form action="#" th:action="@{/admin/categories/update}" th:object="${category}"
+    <form action="#" th:action="@{/admin/category/update{id}(id=${categoryId})}" th:object="@{category}"
         method="POST">
         
        

@@ -3,13 +3,14 @@ package com.example.nooracoffeeshop.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class CustomUserDetail extends User implements UserDetails {
-    public CustomUserDetail(User user) {
+public class CustomerUserDetail extends User implements UserDetails {
+    public CustomerUserDetail(User user) {
         super(user);
     }
     
@@ -24,37 +25,34 @@ public class CustomUserDetail extends User implements UserDetails {
 
     @Override
     public String getUsername() {
-       
         return super.getEmail();
     }
 
     @Override
     public String getPassword() {
-       
         return super.getPassword();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        
         return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        
         return true;
     }
 
     @Override
     public boolean isEnabled() {
-        
         return true;
     } 
+
+   
+
 }

@@ -58,6 +58,15 @@
                 style="color: #37251b; font-weight: bold"
                 >Home</a
               >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  sec:authorize="hasRole('ADMIN')"
+                  th:href="@{/admin}"
+                  style="color: #37251b; font-weight: bold"
+                  >Admin</a
+                >
+              </li>
               <a
                 class="nav-link"
                 th:href="@{/shop}"
@@ -67,10 +76,19 @@
 
               <a
                 class="nav-link"
-                th:href="@{login}"
+                th:href="@{/login}"
+                sec:authorize="isAnonymous()"
                 style="color: #37251b; font-weight: bold"
                 >Login</a
               >
+
+              <a
+              class="nav-link"  
+              th:href="@{/logout}"
+              sec:authorize="isAuthenticated()"
+              style="color: #37251b; font-weight: bold"
+              >Logout</a
+            >
             </nav>
           </div>
         </nav>

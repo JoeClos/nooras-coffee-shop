@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
@@ -31,17 +32,22 @@ public class LoginController {
     @Autowired
     RoleRepository roleRepository;
 
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
+    } 
+
     @GetMapping("/register")
-    public String registerGet() {
+    public String registerGet(){
         return "register";
     }
 
     @PostMapping("/register")
-    public String rgisterPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
+    public String createUser(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
         String password = user.getPassword();
         user.setPassword(bCryptPasswordEncoder.encode(password));
         List<Role> roles = new ArrayList<>();
-            roles.add(roleRepository.findById(2).get());
+        roles.add(roleRepository.findById(2).get());
         
         user.setRoles(roles);
         userRepository.save(user);
@@ -52,10 +58,12 @@ public class LoginController {
     @GetMapping("/password")
     public String passwordGet() {
         return "password";
-    }   
+    }  
+    
+    @PostMapping("/password")
+    public String resetPassword(@RequestParam String email, @RequestParam String password){
+        return "redirect:/login";
+    }
 
-    @GetMapping("/login")
-    public String getLogin() {
-        return "login";
-    }   
+     
 }
