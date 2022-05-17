@@ -4,7 +4,7 @@ package com.example.nooracoffeeshop.service;
 import java.util.Optional;
 
 
-import com.example.nooracoffeeshop.model.CustomUserDetail;
+import com.example.nooracoffeeshop.model.CustomerUserDetail;
 import com.example.nooracoffeeshop.model.User;
 import com.example.nooracoffeeshop.repository.UserRepository;
 
@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomUserDetailService implements UserDetailsService{
+public class CustomerUserDetailsService implements UserDetailsService{
     @Autowired
     UserRepository userRepository;
     
@@ -24,8 +24,8 @@ public class CustomUserDetailService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findUserByEmail(email);
-        user.orElseThrow(() -> new UsernameNotFoundException("user not found"));
-        return user.map(CustomUserDetail::new).get();
+        user.orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return user.map(CustomerUserDetail::new).get();
         
     }
 }

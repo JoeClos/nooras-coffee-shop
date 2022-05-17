@@ -158,7 +158,9 @@
                     </div>
                     <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                         <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1" th:text="${product.price}">$13.99</h4>
+                            <h4 class="mr-1">Price: €
+                                <span  th:text="${product.price}"></span>
+                            </h4>
                         </div>
                         <h6 class="text-success">Free shipping</h6>
                         <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"
@@ -176,7 +178,7 @@
     </div>
     </div>
 
-
+    
 
 
 

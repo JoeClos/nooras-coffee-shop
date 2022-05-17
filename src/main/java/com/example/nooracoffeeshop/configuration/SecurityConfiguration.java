@@ -1,6 +1,6 @@
 package com.example.nooracoffeeshop.configuration;
 
-import com.example.nooracoffeeshop.service.CustomUserDetailService;
+import com.example.nooracoffeeshop.service.CustomerUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,18 +18,17 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter  {
 	@Autowired
-    private CustomUserDetailService customUserDetailService;
+    private CustomerUserDetailsService customerUserDetailsService;
 
-	 @Autowired
-	   GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler;
+	
 
      @Override
     protected void configure(HttpSecurity http) throws Exception {
         
    http
             .authorizeRequests()
-            .antMatchers("/", "/shop/**", "/register", "/password", "/h2-console/**", "/admin/**").permitAll()
-            //  .antMatchers("/admin/**").hasRole("ADMIN")
+            .antMatchers("/", "/shop/**", "/index/**", "/register", "/password", "/h2-console/**").permitAll()
+             .antMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest()
             .authenticated()
             .and()
@@ -40,10 +39,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter  {
             .defaultSuccessUrl("/")
             .usernameParameter("email")
             .passwordParameter("password")
-             .and()
-             .oauth2Login()
-             .loginPage("/login")
-             .successHandler(googleOAuth2SuccessHandler)
             .and()
             .logout()
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -66,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter  {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-       auth.userDetailsService(customUserDetailService);
+       auth.userDetailsService(customerUserDetailsService);
     }
 
     @Override
