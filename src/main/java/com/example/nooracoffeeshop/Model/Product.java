@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Entity
@@ -27,13 +28,14 @@ public class Product extends AbstractPersistable<Long>{
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    // @ManyToOne
-    // @JoinColumn(name = "manufacturer_id", nullable = false)
-    // private Manufacturer manufacturer;
 
-    // @ManyToOne
-    // @JoinColumn(name = "supplier_id",nullable = false)
-    // private Supplier supplier;
+
+    @ManyToOne
+    // @ToString.Exclude
+    // @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
         
+    @ManyToOne
+    private Manufacturer manufacturer;
     
 }

@@ -6,25 +6,26 @@
     <div class="container">
       <div class="mt-5">
         <a
-          th:href="@{/admin/manufacturer/add}"
+          th:href="@{/admin/suppliers/add}"
           style="margin: 20px 0"
           class="btn btn-warning"
           >Reset</a
         >
-        <h3 style="color: #37251b; margin-bottom: 2rem">Add Manufacturer</h3>
+        <h3 style="color: #37251b">Add Supplier</h3>
       </div>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 2rem">
+      
       <div class="row">
         <div class="col-sm-4">
           <form
-            th:action="@{/admin/manufacturer/add}"
+            th:action="@{/admin/suppliers/add}"
             method="post"
-            th:object="${manufacturer}"
+            th:object="${supplier}"
           >
             <input type="hidden" name="id" th:field="*{id}" />
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Supplier's name</label>
               <input
                 type="text"
                 class="form-control"
@@ -34,15 +35,25 @@
                 id="name"
                 placeholder="Enter name"
               />
-              <label for="name">Url</label>
+              <label for="name">Contact person</label>
               <input
                 type="text"
                 class="form-control"
                 required
-                th:field="*{url}"
-                name="url"
-                id="url"
-                placeholder="Enter url"
+                th:field="*{contactPerson}"
+                name="contactPerson"
+                id="contactPerson"
+                placeholder="Enter contact person name"
+              />
+              <label for="name">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                th:field="*{contactPersonEmail}"
+                name="contactPersonEmail"
+                id="contactPersonEmail"
+                placeholder="Enter email"
               />
             </div>
 

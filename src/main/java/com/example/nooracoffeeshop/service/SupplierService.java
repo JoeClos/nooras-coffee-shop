@@ -22,17 +22,22 @@ public class SupplierService {
         return supplierRepository.findById(id);
     }
     
-    // public void addSupplier(Supplier supplier) {
+    public void addSupplier(Supplier supplier) {
+        supplierRepository.save(supplier);
+    }
+    
+    // public void addSupplier(String supplierName, String contactPerson, String contactPersonEmail) {
+    //     Supplier supplier = new Supplier();
+    //     supplier.setName(supplierName);
+    //     supplier.setContactPerson(contactPerson);
+    //     supplier.setContactPersonEmail(contactPersonEmail);
     //     supplierRepository.save(supplier);
     // }
     
-    // public String addSupplier(String name, String contactPerson, String contactPersonEmail) {
-    //     Supplier supplier = new Supplier();
-    //     supplier.setName(supplier.name);
-    // }
     public void removeSupplierById(Long id) {
         supplierRepository.deleteById(id);
     }
 
+    
   
 }

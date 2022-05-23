@@ -41,7 +41,7 @@ public class HomeController {
     public String shopByCategory(Model model, @PathVariable Long id) {
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("products", productService.getAllProductByCategoryId(id));
-        model.addAttribute("manufacturer", manufacturerService.getAllManufacturer());
+        model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
         model.addAttribute("suppliers", supplierService.getAllSupplier());
         return "shop";
     }
