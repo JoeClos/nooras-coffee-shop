@@ -81,7 +81,7 @@
                 style="color: #37251b; font-weight: bold"
                 >Login</a
               >
-
+              <p  class="nav-link" style="color: black;">Welcome, [[${#httpServletRequest.remoteUser}]]!</p>
               <a
               class="nav-link"  
               th:href="@{/logout}"
@@ -89,6 +89,7 @@
               style="color: #37251b; font-weight: bold"
               >Logout</a
             >
+            
             </nav>
           </div>
         </nav>
