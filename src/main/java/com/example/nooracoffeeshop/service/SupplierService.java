@@ -21,10 +21,15 @@ public class SupplierService {
     public Optional<Supplier> getSupplierById(Long id) {
         return supplierRepository.findById(id);
     }
-    public void addSupplier(Supplier supplier) {
-        supplierRepository.save(supplier);
-    }
-
+    
+    // public void addSupplier(Supplier supplier) {
+    //     supplierRepository.save(supplier);
+    // }
+    
+    // public String addSupplier(String name, String contactPerson, String contactPersonEmail) {
+    //     Supplier supplier = new Supplier();
+    //     supplier.setName(supplier.name);
+    // }
     public void removeSupplierById(Long id) {
         supplierRepository.deleteById(id);
     }

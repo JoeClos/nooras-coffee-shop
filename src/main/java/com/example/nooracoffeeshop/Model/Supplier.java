@@ -1,6 +1,9 @@
 package com.example.nooracoffeeshop.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -18,4 +21,11 @@ public class Supplier  extends AbstractPersistable<Long>{
     private String contactPerson;
     private String contactPersonEmail;
     
-}
+    // @OneToMany(mappedBy = "supplier")
+
+    // private List<Product> product;
+    
+
+
+
+ }
