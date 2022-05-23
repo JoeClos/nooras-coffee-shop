@@ -100,6 +100,8 @@ public class AdminController {
           public String productAdd(Model model) {
               model.addAttribute("productDTO", new ProductDTO());
               model.addAttribute("categories", categoryService.getAllCategory());
+              model.addAttribute("suppliers", supplierService.getAllSupplier());
+              model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
               return "productsAdd";
       }
 
@@ -114,6 +116,8 @@ public class AdminController {
                                          product.setPrice(productDTO.getPrice());
                                          product.setDescription(productDTO.getDescription());
                                          product.setCategory(categoryService.getCategoryById(productDTO.getCategoryId()).get());
+                                         product.setSupplier(supplierService.getSupplierById(productDTO.getSupplierId()).get());
+                                        //  product.setManufacturer(manufacturerService.getManufacturerById(productDTO.getManufacturerId()).get());
                                          String imageUUID;
                                          if (!file.isEmpty()) {
                                              imageUUID = file.getOriginalFilename();
@@ -134,12 +138,16 @@ public class AdminController {
         productDTO.setId(product.getId());
         productDTO.setName(product.getName());
         productDTO.setCategoryId(product.getCategory().getId());
+        // productDTO.setManufacturerId(product.getManufacturer().getId());
+        // productDTO.setSupplierId(product.getSupplier().getId());
         productDTO.setDescription(product.getDescription());
         productDTO.setPrice(product.getPrice());
         productDTO.setImage(product.getImage());
 
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productDTO", productDTO);
+        // model.addAttribute("suppliers", supplierService.getAllSupplier());
+        // model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
         return "productsAdd";
     }
 
@@ -151,32 +159,32 @@ public class AdminController {
 
     // Manufacturer
 
-    @GetMapping("/admin/manufacturer")
-    public String getMaker(Model model) {
-        model.addAttribute("manufacturer", manufacturerService.getAllManufacturer());
-        return "manufacturer";
+    @GetMapping("/admin/manufacturers")
+    public String getManufacturer(Model model) {
+        model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
+        return "manufacturers";
     }
-    @GetMapping("/admin/manufacturer/add")
-    public String getMakerAdd(Model model) {
+    @GetMapping("/admin/manufacturers/add")
+    public String getManufacturerAdd(Model model) {
         model.addAttribute("manufacturer", new Manufacturer());
-        return "manufacturerAdd";
+        return "manufacturersAdd";
     }
-    @PostMapping("/admin/manufacturer/add")
-    public String postMakerAdd(@ModelAttribute("maker") Manufacturer manufacturer) {
+    @PostMapping("/admin/manufacturers/add")
+    public String postMakerAdd(@ModelAttribute("manufacturer") Manufacturer manufacturer) {
         manufacturerService.addManufacturer(manufacturer);
-        return "redirect:/admin/manufacturer";
+        return "redirect:/admin/manufacturers";
     }
-    @GetMapping("/admin/manufacturer/delete/{id}")
+    @GetMapping("/admin/manufacturers/delete/{id}")
     public String deleteManufacturer(@PathVariable Long id) {
         manufacturerService.removeManufacturerById(id);
-        return "redirect:/admin/manufacturer";
+        return "redirect:/admin/manufacturers";
     }
-    @GetMapping("/admin/manufacturer/update/{id}")
-    public String updateMaker(@PathVariable Long id, Model model) {
+    @GetMapping("/admin/manufacturers/update/{id}")
+    public String updateManufacturer(@PathVariable Long id, Model model) {
         Optional<Manufacturer> manufacturer = manufacturerService.getManufacturerById(id);
         if (manufacturer.isPresent()) {
             model.addAttribute("manufacturer", manufacturer.get());
-            return "manufacturerAdd";
+            return "manufacturersAdd";
         } else {
         return "404";
         }
@@ -185,36 +193,46 @@ public class AdminController {
 
 
     // Supplier
-    @GetMapping("/admin/supplier")
+    @GetMapping("/admin/suppliers")
     public String getEditor(Model model) {
-        model.addAttribute("supplier",supplierService.getAllSupplier());
-        return "supplier";
+        model.addAttribute("suppliers",supplierService.getAllSupplier());
+        return "suppliers";
     }
 
-    @GetMapping("/admin/supplier/add")
+    @GetMapping("/admin/suppliers/add")
     public String getSupplierAdd(Model model) {
         model.addAttribute("supplier", new Supplier());
-        return "supplierAdd";
+        return "suppliersAdd";
     }
-    @PostMapping("/admin/supplier/add")
+    @PostMapping("/admin/suppliers/add")
     public String postSupplierAdd(@ModelAttribute("supplier") Supplier supplier) {
         supplierService.addSupplier(supplier);
-        return "redirect:/admin/supplier";
+        return "redirect:/admin/suppliers";
 
     }
 
-    @GetMapping("/admin/supplier/delete/{id}")
+    //  @PostMapping("/admin/suppliers/add")
+    // public String postSupplierAdd(@RequestParam String name, 
+    //                                 @RequestParam String contactPerson,
+    //                                 @RequestParam String contactPersonEmail
+    //                                 ) {
+    //     supplierService.addSupplier(name, contactPerson, contactPersonEmail);
+    //     return "redirect:/admin/suppliers";
+
+    // }
+
+    @GetMapping("/admin/suppliers/delete/{id}")
     public String deleteEditor(@PathVariable Long id) {
         supplierService.removeSupplierById(id);
-        return "redirect:/admin/supplier";
+        return "redirect:/admin/suppliers";
     }
     
-     @GetMapping("/admin/supplier/update/{id}")
+     @GetMapping("/admin/suppliers/update/{id}")
      public String updateSupplier(@PathVariable Long id, Model model) {
          Optional<Supplier> supplier = supplierService.getSupplierById(id);
          if (supplier.isPresent()) {
              model.addAttribute("supplier", supplier.get());
-             return "supplierAdd";
+             return "suppliersAdd";
          } else {
          return "404";
          }

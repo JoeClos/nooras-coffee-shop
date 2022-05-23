@@ -23,7 +23,7 @@ public class ManufacturerService {
     public void removeManufacturerById(Long id) {
         manufacturerRepository.deleteById(id);
     }
-    public Optional<Manufacturer> getManufacturerById(long id) {
+    public Optional<Manufacturer> getManufacturerById(Long id) {
         return manufacturerRepository.findById(id);
     }
 }

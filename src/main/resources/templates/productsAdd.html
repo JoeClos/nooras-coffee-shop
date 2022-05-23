@@ -42,41 +42,49 @@
                   th:text="${category.name}"
                 ></option>
               </select>
-
+            </div>
               <!-- Manufacturer -->
 
-              <!-- <div class="form-group">
-                <label for="manufacturer">Select Manufacturer</label>
-                <select
-                  class="form-control"
-                  th:field="*{manufacturerId}"
-                  id="manufacturer"
-                  style="background-color: #e78b456c"
-                  name="manufacturer"
-                >
-                  <option
-                    th:each="manufacturer :${manufacturers}"
-                    th:value="${manufacturer.id}"
-                    th:text="${manufacturer.name}"
-                  ></option>
-                </select>
-              </div> -->
-              <!-- <label for="manufacturer">Select manufacturer</label>
+             <div class="form-group">
+  
+              <label for="manufacturer">Select manufacturer</label>
               <select
                 class="form-control"
-                th:field="*{manufacturerID}"
+                th:field="*{manufacturerId}"
                 id="manufacturer"
                 name="manufacturer"
               >
-              <option selected>Choose manufacturer</option>
-                <option
-                  th:each="manufacturer :${manufacturers}"
-                  th:value="${manufacturer.id}"
-                  th:text="${manufacturer.name}"
-                  th:text="${manufacturer.url}"
-                ></option>
-              </select> -->
-            </div>
+             
+              <option
+                th:each="manufacturer :${manufacturers}"
+                th:value="${manufacturer.id}"
+                th:text="${manufacturer.name}"
+             
+              ></option>
+
+              </select> 
+
+              <!-- supplier -->
+             
+              <div class="form-group"> 
+                <label for="supplier">Select supplier</label>
+                <select
+                  class="form-control"
+                  name="supplier"
+                  th:field="*{supplierId}"
+                  id="supplier"
+                >
+                
+                  <option
+                    th:each="supplier :${suppliers}"
+                    th:value="${supplier.id}"
+                    th:text="${supplier.name}"
+                  ></option>
+                </select>
+              </div>
+
+
+            
             <div class="form-group">
               <label for="description">Description</label>
               <input

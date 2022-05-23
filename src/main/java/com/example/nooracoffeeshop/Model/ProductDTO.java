@@ -13,4 +13,6 @@ public class ProductDTO {
     private BigDecimal price;
     private String image;
     private Long categoryId;
+    private Long supplierId;
+    private Long manufacturerId;
 }

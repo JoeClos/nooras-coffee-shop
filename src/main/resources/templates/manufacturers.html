@@ -7,7 +7,7 @@
     <div class="container">
       <div class="mt-5">
         <a
-          th:href="@{/admin/manufacturer/add}"
+          th:href="@{/admin/manufacturers/add}"
           style="margin-top: 1rem; background-color: #37251b; border: #37251b"
           class="btn btn-primary"
           >Add Manufacturer</a
@@ -23,21 +23,21 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">NAME</th>
+            <th scope="col">Name</th>
             <th scope="col">URL</th>
-            <th scope="col">UPDATE</th>
-            <th scope="col">DELETE</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="manufacturer, id : ${manufacturer}">
-            <th scope="row" th:text="${id.index + 1}">1</th>
+          <tr th:each="manufacturer: ${manufacturers}">
+            <td th:text="${manufacturer.id}"></td>
             <td th:text="${manufacturer.name}">Larry</td>
-            <td th:text="${manufacturer.url}">Larry</td>
+            <td><a th:href="${manufacturer.url}" th:text="${manufacturer.url}"></a></td>
             <td>
               <a
                 href=""
-                th:href="@{/admin/manufacturer/update/{id}(id=${manufacturer.id})}"
+                th:href="@{/admin/manufacturers/update/{id}(id=${manufacturer.id})}"
                 class="btn btn-warning"
                 >Update</a
               >
@@ -46,7 +46,7 @@
             <td>
               <a
                 href=""
-                th:href="@{/admin/manufacturer/delete/{id}(id=${manufacturer.id})}"
+                th:href="@{/admin/manufacturers/delete/{id}(id=${manufacturer.id})}"
                 class="btn btn-danger"
                 >Delete</a
               >

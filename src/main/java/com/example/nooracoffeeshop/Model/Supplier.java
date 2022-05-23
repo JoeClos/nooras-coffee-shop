@@ -1,6 +1,7 @@
 package com.example.nooracoffeeshop.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -20,12 +21,10 @@ public class Supplier  extends AbstractPersistable<Long>{
     private String name;
     private String contactPerson;
     private String contactPersonEmail;
-    
-    // @OneToMany(mappedBy = "supplier")
+   
 
-    // private List<Product> product;
-    
+    @OneToMany(mappedBy = "supplier")
 
-
+    private List<Product> product = new ArrayList<>();
 
  }
