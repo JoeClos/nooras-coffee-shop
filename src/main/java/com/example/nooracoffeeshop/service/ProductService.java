@@ -7,6 +7,8 @@ import com.example.nooracoffeeshop.model.Product;
 import com.example.nooracoffeeshop.repository.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +19,8 @@ public class ProductService {
     public List<Product>getAllProduct(){
         return productRepository.findAll(); 
     }
+
+    
 
     public void addProduct(Product product){
         productRepository.save(product);
@@ -31,6 +35,11 @@ public class ProductService {
    public List<Product> getAllProductByCategoryId(Long id) {
        return productRepository.findAllByCategory_Id(id);
        }
+
+       public Page<Product> getProductPaginate(int currentPage, int size) {
+        PageRequest pageable = PageRequest.of(currentPage, size);
+        return productRepository.findAll(pageable);
+    }
 
    
     
