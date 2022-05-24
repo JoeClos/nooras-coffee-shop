@@ -131,23 +131,23 @@ public class AdminController {
                                          return "redirect:/admin/products";
                                  }
 
-    @GetMapping("/admin/product/update/{id}")
+    @GetMapping("/admin/products/update/{id}")
     public String updateProductGet(@PathVariable Long id, Model model) {
         Product product = productService.getProductById(id).get();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());
         productDTO.setName(product.getName());
         productDTO.setCategoryId(product.getCategory().getId());
-        // productDTO.setManufacturerId(product.getManufacturer().getId());
-        // productDTO.setSupplierId(product.getSupplier().getId());
+        productDTO.setManufacturerId(product.getManufacturer().getId());
+        productDTO.setSupplierId(product.getSupplier().getId());
         productDTO.setDescription(product.getDescription());
         productDTO.setPrice(product.getPrice());
         productDTO.setImage(product.getImage());
 
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productDTO", productDTO);
-        // model.addAttribute("suppliers", supplierService.getAllSupplier());
-        // model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
+        model.addAttribute("suppliers", supplierService.getAllSupplier());
+        model.addAttribute("manufacturers", manufacturerService.getAllManufacturer());
         return "productsAdd";
     }
 
