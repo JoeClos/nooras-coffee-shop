@@ -147,10 +147,12 @@
                             th:src="@{${'/productImages/' + product.image}}" th:alt="${product.name}"></div>
                     <div class="col-md-6 mt-1">
                         <h5 th:text="${product.name}"></h5>
+                        <p>Category: <span th:text="${product.category.name}"></span> </p>
                         <div class="d-flex flex-row">
                             <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                     class="fa fa-star"></i><i class="fa fa-star"></i></div>
                         </div>
+                        
                         <div class="mt-1 mb-1 spec-1">
 
                         </div>
