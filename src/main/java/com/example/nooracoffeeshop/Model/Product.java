@@ -21,7 +21,7 @@ import lombok.ToString;
 public class Product extends AbstractPersistable<Long>{
     private String name;
     private String description;
-    private BigDecimal price;
+    private double price;
     private String image;
 
     @ManyToOne

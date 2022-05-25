@@ -131,15 +131,15 @@ public class AdminController {
                                          return "redirect:/admin/products";
                                  }
 
-    @GetMapping("/admin/products/update/{id}")
+    @GetMapping("/admin/product/update/{id}")
     public String updateProductGet(@PathVariable Long id, Model model) {
         Product product = productService.getProductById(id).get();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());
         productDTO.setName(product.getName());
         productDTO.setCategoryId(product.getCategory().getId());
-        productDTO.setManufacturerId(product.getManufacturer().getId());
-        productDTO.setSupplierId(product.getSupplier().getId());
+        // productDTO.setManufacturerId(product.getManufacturer().getId());
+        // productDTO.setSupplierId(product.getSupplier().getId());
         productDTO.setDescription(product.getDescription());
         productDTO.setPrice(product.getPrice());
         productDTO.setImage(product.getImage());

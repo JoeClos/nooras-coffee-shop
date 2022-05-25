@@ -33,7 +33,7 @@
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a
-            class="nav-link active"
+            class="nav-link active" 
             sec:authorize="hasRole('ADMIN')"
             th:href="@{/admin}"
             style="font-size: 1.3rem; color: #37251b"
@@ -58,6 +58,39 @@
             th:href="@{/shop}"
             style="font-size: 1.3rem; color: #37251b"
             >Shop
+            </a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            th:href="@{/admin/categories}"
+            style="font-size: 1.3rem; color: #37251b"
+            >Categories
+            </a
+          >
+        </li><li class="nav-item">
+          <a
+            class="nav-link"
+            th:href="@{/admin/products}"
+            style="font-size: 1.3rem; color: #37251b"
+            >Products
+            </a
+          >
+        </li><li class="nav-item">
+          <a
+            class="nav-link"
+            th:href="@{/admin/suppliers}"
+            style="font-size: 1.3rem; color: #37251b"
+            >Suppliers
+            </a
+          >
+        </li><li class="nav-item">
+          <a
+            class="nav-link"
+            th:href="@{/admin/manufacturers}"
+            style="font-size: 1.3rem; color: #37251b"
+            >Manufacturers
             </a
           >
         </li>

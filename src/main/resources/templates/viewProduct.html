@@ -119,16 +119,17 @@
           <h3>€ <span th:text="${product.price}"></span></h3>
 
           <p th:text="${product.description}"></p>
-          <a
+          <!-- <a
             
             th:href="@{/addToCart/{id}(id = ${product.id})}"
             class="btn btn-primary"
             style="background-color: #37251b; border: #37251b;"
             >Add to cart</a
-          >
+          > -->
+          <a th:href="@{/shop/}" class="btn btn-primary" style="background-color: #37251b; border: #37251b; margin-left: 13rem;">Back to list</a> 
+
         </div>
       </div>
-      <a th:href="@{/shop/}" class="btn btn-primary" style="background-color: #37251b; border: #37251b; margin-left: 13rem;">Products' List</a> 
     </div>
 
 

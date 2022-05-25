@@ -77,9 +77,25 @@ public class HomeController {
         model.addAttribute("suppliers", supplierService.getAllSupplier());
         return "shop";
     }
-    
+
+    @GetMapping("category/{id}")
+    public String coffeeMachineAndProducts(Model model, @PathVariable Long id) {
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("products", productService.getAllProductByCategoryId(id));
+        model.addAttribute("manufacturer", manufacturerService.getAllManufacturer());
+        model.addAttribute("suppliers", supplierService.getAllSupplier());
+        return "coffeeMachinesAndProducts";
+    }
+
     @GetMapping("shop/viewproduct/{id}")
     public String viewProduct(Model model, @PathVariable Long id) {
+        model.addAttribute("product", productService.getProductById(id).get());
+        
+        return "viewProduct";
+    }
+
+    @GetMapping("coffeeMachinesAndProducts/viewproduct/{id}")
+    public String viewProducts(Model model, @PathVariable Long id) {
         model.addAttribute("product", productService.getProductById(id).get());
         
         return "viewProduct";
