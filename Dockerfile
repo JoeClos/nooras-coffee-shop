@@ -3,7 +3,7 @@ COPY . .
 RUN mcv clean package -DskipTests
 
 FROM openjdk:17
-COPY --from=build nooras-coffee-shop\target\noora-coffee-shop-0.0.1-SNAPSHOT.jar noora-coffee-shop-0.0.1-SNAPSHOT.jar
+COPY --from=build /target/noora-coffee-shop-0.0.1-SNAPSHOT.jar noora-coffee-shop.jar
 
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "noora-coffee-shop-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT [ "java", "-jar", "noora-coffee-shop.jar" ]
