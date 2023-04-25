@@ -1,7 +1,9 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.2.9-slim
-WORKDIR /opt
+FROM maven:3.9.0-eclipse-temurin-17-alpine AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-ENV PORT 8080
+FROM openjdk:17
+COPY --from=build /target/noora-coffee-shop-0.0.1-SNAPSHOT.jar noora-coffee-shop.jar
+
 EXPOSE 8080
-COPY target/*.jar /opt/app.jar
-ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
+ENTRYPOINT [ "java", "-jar", "noora-coffee-shop.jar" ]
