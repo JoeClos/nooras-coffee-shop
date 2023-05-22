@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client: 
+    image: joeclos/noora-coffee-shop
+    ports: 
+      - 8080:8080
+    links:
+      - db
+  db: 
+    image: buildo/h2database
+    ports: 
+      - 8082:8082
+    volumes:
+      - ./db:/h2-data
