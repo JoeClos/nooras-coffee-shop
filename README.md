@@ -1,5 +1,5 @@
 ﻿# Noora Coffee Shop - Helsinki Business College - school project.
- The application is an online coffee shop website, where the admin can add, modify and delete products, producers and suppliers. Additionally users can register/login.
+ The application is an online coffee shop website, where the admin can add, modify and delete categories, products, suppliers and manufacturers. Additionally users can register/login.
 
  #### Landing page
  ![Noora-coffee-shop-mainpage](https://github.com/JoeClos/nooras-coffee-shop/assets/89244648/9ade9efe-ba51-44c9-afd7-e193b7249da1)
